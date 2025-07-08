@@ -24,7 +24,7 @@ public class Functions {
                 String jsonPayload = "{\n" +
                         "  \"embeds\": [\n" +
                         "    {\n" +
-                        "      \"title\": \"Staff Report\",\n" +
+                        "      \"title\": \"StaffLink\",\n" +
                         "      \"color\": 16763904, \n" + // A nice orange color for reports (decimal value)
                         "      \"fields\": [\n" +
                         "        {\n" +
@@ -48,7 +48,7 @@ public class Functions {
                         "        }\n" +
                         "      ],\n" +
                         "      \"footer\": {\n" +
-                        "        \"text\": \"StaffReport Plugin\"\n" +
+                        "        \"text\": \"StaffLink Plugin\"\n" +
                         "      }\n" +
                         "    }\n" +
                         "  ]\n" +
@@ -157,7 +157,7 @@ public class Functions {
                         "        }\n" +
                         "      ],\n" +
                         "      \"footer\": {\n" +
-                        "        \"text\": \"StaffReport Plugin - Feedback System\"\n" +
+                        "        \"text\": \"StaffLink Plugin - Feedback System\"\n" +
                         "      }\n" +
                         "    }\n" +
                         "  ]\n" +
