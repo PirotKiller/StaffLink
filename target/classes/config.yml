@@ -1,0 +1,14 @@
+#StaffLink Configuration
+#Permissions:
+#stafflink.report for /reportstaff
+#stafflink.feedback for /feedback
+
+discord-report-webhook-url: "YOUR_DISCORD_WEBHOOK_URL_HERE"
+
+discord-feedback-webhook-url: "YOUR_DISCORD_WEBHOOK_URL_FOR_FEEDBACK"
+
+#List of all the Staff Members
+Staff-Member:
+  - "PirotKiller"
+  - "Epic_VK"
+  - "null"

@@ -1,0 +1,2 @@
+# StaffLink
+StaffLink is an essential Minecraft plugin designed to enhance communication and accountability on your server. It provides players with simple, in-game commands to report issues with staff members and submit general feedback, with all messages instantly relayed to your designated Discord channels via webhooks. Streamline your moderation efforts and foster a more transparent community with StaffLink!
