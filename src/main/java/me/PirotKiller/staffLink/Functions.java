@@ -11,6 +11,7 @@ public class Functions {
     public Functions(StaffLink main) {
         this.main = main;
     }
+
     public void sendToDiscord(String reporterName, String staffMemberName, String reason) {
         new Thread(() -> {
             try {
@@ -80,7 +81,7 @@ public class Functions {
     public void sendFeedbackToDiscord(String reporterName, String reporterUUID, String feedbackType, String message, boolean anonymous) {
         new Thread(() -> {
             try {
-                URL url = new URL(main.getStaffReportWebhookUrl());
+                URL url = new URL(main.getFeedbackWebhookUrl());
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("POST");
                 connection.setDoOutput(true);

@@ -1,5 +1,5 @@
 name: StaffLink
-version: '1.0'
+version: '1.01'
 main: me.PirotKiller.staffLink.StaffLink
 api-version: '1.21'
 prefix: StaffLink

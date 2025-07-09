@@ -7,7 +7,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.List;
 
-public final class StaffLink extends JavaPlugin{
+public final class StaffLink extends JavaPlugin {
 
     private String staffReportWebhookUrl;
     private List<String> staffMembers;
@@ -40,6 +40,10 @@ public final class StaffLink extends JavaPlugin{
 
     public String getStaffReportWebhookUrl() {
         return staffReportWebhookUrl;
+    }
+
+    public String getFeedbackWebhookUrl() {
+        return feedbackWebhookUrl;
     }
 
     public List<String> getStaffMembers() {

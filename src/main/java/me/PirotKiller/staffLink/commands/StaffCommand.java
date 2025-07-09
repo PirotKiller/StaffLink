@@ -30,7 +30,7 @@ public class StaffCommand implements TabExecutor {
 
         if (cmd.getName().equalsIgnoreCase("reportstaff")) {
             if (args.length < 2) {
-                new UChat().sendMessage(reporter,"§cUsage: /reportstaff <staff_member_name> <reason>");
+                new UChat().sendMessage(reporter, "§cUsage: /reportstaff <staff_member_name> <reason>");
                 return true;
             }
 
@@ -51,16 +51,16 @@ public class StaffCommand implements TabExecutor {
                 functions.sendToDiscord(reporter.getName(), staffMemberName, reason);
                 new UChat().sendMessage(reporter, "§aYour report against §e" + staffMemberName + "§a has been submitted.");
                 return true;
-            }else{
-            new UChat().sendMessage(reporter,"§cInvalid Staff member does not exist.");
-        }
+            } else {
+                new UChat().sendMessage(reporter, "§cInvalid Staff member does not exist.");
+            }
         }
         return false;
     }
 
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
-        if (args.length == 1){
+        if (args.length == 1) {
             return main.getStaffMembers();
         }
         return null;
