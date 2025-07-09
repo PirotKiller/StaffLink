@@ -35,21 +35,25 @@ public class StaffCommand implements TabExecutor {
             }
 
             String staffMemberName = args[0];
-            StringBuilder reasonBuilder = new StringBuilder();
-            for (int i = 1; i < args.length; i++) {
-                reasonBuilder.append(args[i]).append(" ");
-            }
-            String reason = reasonBuilder.toString().trim();
+            if (main.getStaffMembers().contains(staffMemberName)) {
+                StringBuilder reasonBuilder = new StringBuilder();
+                for (int i = 1; i < args.length; i++) {
+                    reasonBuilder.append(args[i]).append(" ");
+                }
+                String reason = reasonBuilder.toString().trim();
 
-            if (main.getStaffReportWebhookUrl() == null || main.getStaffReportWebhookUrl().isEmpty()) {
-                new UChat().sendMessage(reporter,"§cError: Discord Webhook URL is not configured. Report cannot be sent.");
-                main.getLogger().severe("Attempted to send staff report, but webhook URL is missing!");
+                if (main.getStaffReportWebhookUrl() == null || main.getStaffReportWebhookUrl().isEmpty()) {
+                    new UChat().sendMessage(reporter, "§cError: Discord Webhook URL is not configured. Report cannot be sent.");
+                    main.getLogger().severe("Attempted to send staff report, but webhook URL is missing!");
+                    return true;
+                }
+
+                functions.sendToDiscord(reporter.getName(), staffMemberName, reason);
+                new UChat().sendMessage(reporter, "§aYour report against §e" + staffMemberName + "§a has been submitted.");
                 return true;
-            }
-
-            functions.sendToDiscord(reporter.getName(), staffMemberName, reason);
-            new UChat().sendMessage(reporter,"§aYour report against §e" + staffMemberName + "§a has been submitted.");
-            return true;
+            }else{
+            new UChat().sendMessage(reporter,"§cInvalid Staff member does not exist.");
+        }
         }
         return false;
     }
