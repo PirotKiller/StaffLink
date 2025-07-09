@@ -2,6 +2,7 @@ package me.PirotKiller.staffLink.commands;
 
 import me.PirotKiller.staffLink.Functions;
 import me.PirotKiller.staffLink.StaffLink;
+import me.PirotKiller.staffLink.utils.UChat;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
@@ -28,10 +29,10 @@ public class FeedbackCommand implements TabExecutor {
 
         Player reporter = (Player) sender;
             if (args.length < 2 || args[0].equalsIgnoreCase("help")) {
-                reporter.sendMessage("§cUsage: /feedback <type> [anonymous] <message>");
-                reporter.sendMessage("§cTypes: suggestion, bug, general, other");
-                reporter.sendMessage("§cExample: /feedback suggestion Add more minigames.");
-                reporter.sendMessage("§cExample: /feedback bug anonymous Lobby is lagging.");
+                new UChat().sendMessage(reporter,"§cUsage: /feedback <type> [anonymous] <message>");
+                new UChat().sendMessage(reporter,"§cTypes: suggestion, bug, general, other");
+                new UChat().sendMessage(reporter,"§cExample: /feedback suggestion Add more minigames.");
+                new UChat().sendMessage(reporter,"§cExample: /feedback bug anonymous Lobby is lagging.");
                 return true;
             }
 
@@ -46,8 +47,8 @@ public class FeedbackCommand implements TabExecutor {
             }
 
             if (args.length < messageStartIndex + 1) { // Check if message is present after type and optional anonymous
-                reporter.sendMessage("§cUsage: /feedback <type> [anonymous] <message>");
-                reporter.sendMessage("§cPlease provide a message for your feedback.");
+                new UChat().sendMessage(reporter,"§cUsage: /feedback <type> [anonymous] <message>");
+                new UChat().sendMessage(reporter,"§cPlease provide a message for your feedback.");
                 return true;
             }
 
@@ -58,7 +59,7 @@ public class FeedbackCommand implements TabExecutor {
             message = messageBuilder.toString().trim();
 
             if (main.getStaffReportWebhookUrl() == null || main.getStaffReportWebhookUrl().isEmpty()) {
-                reporter.sendMessage("§cError: Discord Webhook URL for feedback is not configured. Feedback cannot be sent.");
+                new UChat().sendMessage(reporter,"§cError: Discord Webhook URL for feedback is not configured. Feedback cannot be sent.");
                 main.getLogger().severe("Attempted to send feedback, but webhook URL is missing!");
                 return true;
             }

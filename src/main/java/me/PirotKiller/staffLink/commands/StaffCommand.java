@@ -2,6 +2,7 @@ package me.PirotKiller.staffLink.commands;
 
 import me.PirotKiller.staffLink.Functions;
 import me.PirotKiller.staffLink.StaffLink;
+import me.PirotKiller.staffLink.utils.UChat;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
@@ -29,7 +30,7 @@ public class StaffCommand implements TabExecutor {
 
         if (cmd.getName().equalsIgnoreCase("reportstaff")) {
             if (args.length < 2) {
-                reporter.sendMessage("§cUsage: /reportstaff <staff_member_name> <reason>");
+                new UChat().sendMessage(reporter,"§cUsage: /reportstaff <staff_member_name> <reason>");
                 return true;
             }
 
@@ -41,13 +42,13 @@ public class StaffCommand implements TabExecutor {
             String reason = reasonBuilder.toString().trim();
 
             if (main.getStaffReportWebhookUrl() == null || main.getStaffReportWebhookUrl().isEmpty()) {
-                reporter.sendMessage("§cError: Discord Webhook URL is not configured. Report cannot be sent.");
+                new UChat().sendMessage(reporter,"§cError: Discord Webhook URL is not configured. Report cannot be sent.");
                 main.getLogger().severe("Attempted to send staff report, but webhook URL is missing!");
                 return true;
             }
 
             functions.sendToDiscord(reporter.getName(), staffMemberName, reason);
-            reporter.sendMessage("§aYour report against §e" + staffMemberName + "§a has been submitted.");
+            new UChat().sendMessage(reporter,"§aYour report against §e" + staffMemberName + "§a has been submitted.");
             return true;
         }
         return false;
